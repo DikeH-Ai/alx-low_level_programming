@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 /**
- * main- Entry point
+ * main - Entry point
  *
  * printf - Print to stdout
  *
- * Return - Always return 0 (success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
