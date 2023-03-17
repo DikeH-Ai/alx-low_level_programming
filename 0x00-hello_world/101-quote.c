@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <unistd.h>
-
 /**
  * main - Entry point
  *
@@ -10,7 +9,8 @@
  */
 int main(void)
 {
-	fwrite("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n",
-			58, 1, stderr);
+	char *msg = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+
+	write(2, msg, 70);
 	return (1);
 }
