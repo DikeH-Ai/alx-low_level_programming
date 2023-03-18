@@ -16,7 +16,7 @@ int main(void)
 			{
 				putchar(48 + a);
 				putchar(48 + b);
-				if (b < 9)
+				if (a < 8)
 				{
 					putchar(44);
 					putchar(32);
