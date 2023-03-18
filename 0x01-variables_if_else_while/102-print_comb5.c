@@ -1,39 +1,36 @@
 #include <stdio.h>
 /**
- * main- Entry point
- * Return: return 0
-*/
+ * main -Entry point
+ * Return: always 0
+ */
 int main(void)
 {
-	int a;
-	int b;
-	int c;
-	int d;
+	int a, b;
 
-	for (a = 0; a < 10; a++)
+	for (a = 0; a <= 99; a++)
 	{
-		for (b = 0; b < 10; b++)
+		for (b = a + 1; b <= 99; b++)
 		{
-			for (c = 0; c < 10; c++)
+			int tens_a = a / 10;
+			int ones_a = a % 10;
+			int tens_b = b / 10;
+			int ones_b = b % 10;
+
+			if (a != b)
 			{
-				for (d = 0; d < 10; d++)
+				putchar(tens_a + 48);
+				putchar(ones_a + 48);
+				putchar(32);
+				putchar(tens_b + 48);
+				putchar(ones_b + 48);
+				if (a < 98)
 				{
-					if (((c + d) > (a + b) && (a <= c)))
-					{
-						putchar(48 + a);
-						putchar(48 + b);
-						putchar(32);
-						putchar(48 + c);
-						putchar(48 + d);
-					}
-					if (b < 8)
-					{
-						putchar(44);
-						putchar(32);
-					}
+					putchar(',');
+					putchar(' ');
 				}
 			}
 		}
 	}
+	putchar('\n');
 	return (0);
 }
