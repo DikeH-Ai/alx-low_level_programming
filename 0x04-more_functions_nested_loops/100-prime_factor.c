@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>
+#include "main.h"
 /**
  * main - prints largest prime number
  * Return: always 0
