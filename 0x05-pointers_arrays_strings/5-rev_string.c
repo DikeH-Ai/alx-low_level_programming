@@ -7,7 +7,7 @@
  */
 void rev_string(char *s)
 {
-	int i = sizeof(s);
+	int i =  _strlen(s) - 1;
 
 	int j;
 	char tmp;
@@ -19,4 +19,23 @@ void rev_string(char *s)
 		s[i] = tmp;
 		i--;
 	}
+}
+/**
+ * _strlen -count string
+ * @s: string pointer
+ * Return: int count
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (2 == 2)
+	{
+		if (*(s + i) == '\0')
+		{
+			break;
+		}
+		i++;
+	}
+	return (i);
 }
