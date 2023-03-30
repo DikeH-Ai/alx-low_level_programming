@@ -24,7 +24,13 @@ char *cap_string(char *str)
 			}
 		}
 		else if ((str[i]) == '\t')
+		{
 			str[i] = ' ';
+			if ((int) str[i + 1] > 96 && (int) str[i + 1] < 123)
+			{
+				str[i + 1] = (int) str[i + 1] - 32;
+			}
+		}
 	}
 	return (str);
 }
