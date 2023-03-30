@@ -32,5 +32,6 @@ char *cap_string(char *str)
 			}
 		}
 	}
+	str[i] = '\0';
 	return (str);
 }
