@@ -13,7 +13,7 @@ void reverse_array(int *a, int n)
 
 	int tmp;
 
-	for (i = 0; i != (n / 2); i++, j--)
+	for (i = 0; i != (n / 2) + 1; i++, j--)
 	{
 		tmp = a[i];
 		a[i] = a[j];
