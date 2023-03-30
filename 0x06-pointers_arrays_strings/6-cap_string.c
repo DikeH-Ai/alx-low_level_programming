@@ -11,7 +11,7 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
+		if (str[i] == ' ' || str[i] == '\n' ||
 				str[i] == ',' || str[i] == ';' ||
 				str[i] == '.' || str[i] == '!' ||
 				str[i] == '?' || str[i] == '\"' ||
@@ -23,6 +23,8 @@ char *cap_string(char *str)
 				str[i + 1] = (int) str[i + 1] - 32;
 			}
 		}
+		else if ((str[i]) == '\t')
+			str[i] = ' ';
 	}
 	return (str);
 }
