@@ -21,7 +21,7 @@ char *rot13(char *str)
 		'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k',
 		'L', 'l', 'M', 'm'};
 
-	int i,j;
+	int i, j;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
