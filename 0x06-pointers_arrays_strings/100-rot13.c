@@ -7,27 +7,32 @@
  */
 char *rot13(char *str)
 {
-	char *c = str;
+	char alpha[52] = {
+		'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f',
+		'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l',
+		'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r',
+		'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x',
+		'Y', 'y', 'Z', 'z'};
 
-	char upper[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char value[52] = {
+		'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's',
+		'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y',
+		'Z', 'z', 'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e',
+		'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k',
+		'L', 'l', 'M', 'm'};
 
-	char lower[27] = "abcdefghijklmnopqrstuvwxyz";
+	int i,j;
 
-	int i, j;
-
-	while (*c)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (*c >= 'A' && *c <= 'Z')
+		for (j = 0; j < 52; j++)
 		{
-			i = (*c - 'A' + 13) % 26;
-			*c = upper[i];
+			if (str[i] == alpha[j])
+			{
+				*(str + i) = value[j];
+				break;
+			}
 		}
-		else if (*c >= 'a' && *c <= 'z')
-		{
-			j = (*c - 'a' + 13) % 26;
-			*c = lower[j];
-		}
-		c++;
 	}
 	return (str);
 }
