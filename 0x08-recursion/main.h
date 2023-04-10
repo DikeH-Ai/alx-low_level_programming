@@ -8,18 +8,5 @@ int factorial(int n);
 int _pow_recursion(int x, int y);
 int _sqrt_recursion(int n);
 int is_prime_number(int n);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 int is_palindrome(char *s);
-int wildcmp(char *s1, char *s2);
-=======
->>>>>>> parent of 5cd87f3... palindrome
-=======
->>>>>>> parent of 5cd87f3... palindrome
-=======
->>>>>>> parent of 5cd87f3... palindrome
-=======
->>>>>>> parent of 5cd87f3... palindrome
 #endif /*MAIN_H*/
