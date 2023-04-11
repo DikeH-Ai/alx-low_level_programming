@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- *
- *
- *
- *
+ * main - count number of change
+ * @argc: arg count
+ * @argv: arg vector
+ * Return: o or 1
  */
 int change(int);
 int main(int argc, char *argv[])
 {
 	int cent;
 
-	if (argc != 3)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
@@ -27,10 +27,9 @@ int main(int argc, char *argv[])
 	return (0);
 }
 /**
- *
- *
- *
- *
+ *change - returns change count
+ *@cent: change
+ *Return: int
  */
 int change(int cent)
 {
