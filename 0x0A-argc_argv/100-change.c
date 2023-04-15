@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+unsigned int change(unsigned int);
 /**
  * main- count number of change
  * @argc: arg count
  * @argv: arg vector
  * Return: o or 1
  */
-unsigned int change(unsigned int);
 int main(int argc, char *argv[])
 {
 	long int cent;
 	unsigned int count;
+
 	if (argc != 2)
 	{
 		printf("Error\n");
