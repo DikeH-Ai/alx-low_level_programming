@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - count number of change
+ * main- count number of change
  * @argc: arg count
  * @argv: arg vector
  * Return: o or 1
  */
-int change(int);
+unsigned int change(unsigned int);
 int main(int argc, char *argv[])
 {
-	int cent;
-
+	long int cent;
+	unsigned int count;
 	if (argc != 2)
 	{
 		printf("Error\n");
@@ -23,26 +23,32 @@ int main(int argc, char *argv[])
 		printf("0\n");
 		return (0);
 	}
-	printf("%d\n", change(cent));
+	count = change(cent);
+	printf("%u\n", count);
 	return (0);
 }
 /**
- *change - returns change count
+ *change- returns change count
  *@cent: change
  *Return: int
  */
-int change(int cent)
+unsigned int change(unsigned int cent)
 {
-	if (cent <= 0)
-		return (0);
-	else if (cent >= 25)
-		return (change(cent - 25) + 1);
-	else if (cent >= 10)
-		return (change(cent - 10) + 1);
-	else if (cent >= 5)
-		return (change(cent - 5) + 1);
-	else if (cent >= 2)
-		return (change(cent - 2) + 1);
-	else
-		return (change(cent - 1) + 1);
+	int count = 0;
+
+	while (cent > 0)
+	{
+		if (cent >= 25)
+			cent = cent - 25;
+		else if (cent >= 10)
+			cent = cent - 10;
+		else if (cent >= 5)
+			cent = cent - 5;
+		else if (cent >= 2)
+			cent = cent - 2;
+		else
+			cent = cent - 1;
+		count++;
+	}
+	return (count);
 }
