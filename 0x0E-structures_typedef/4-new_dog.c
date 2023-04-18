@@ -75,7 +75,7 @@ void str_cpy(char *source, char *dest)
 	int j;
 	int i = str_len(source);
 
-	for (j = 0; j < i, j++)
+	for (j = 0; j < i; j++)
 	{
 		dest[j] = source[j];
 	}
