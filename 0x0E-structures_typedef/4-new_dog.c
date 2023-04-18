@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "dog.h"
 int str_len(char *words);
-void str_cpy(char *source, char *dest);
+char *str_cpy(char *source, char *dest);
 /**
  *new_dog - creates a new dog
  *@name: member1
@@ -18,7 +18,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	if (dog == NULL)
 	{
-		free(dog);
 		return (NULL);
 	}
 	len = str_len(name);
@@ -50,7 +49,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	return (NULL);
 }
 /**
- *str_len - count the words
+ *str_len - length of string
  *@words: word parameter
  *Return: returns int
  */
@@ -65,12 +64,12 @@ int str_len(char *words)
 	return (i);
 }
 /**
- *str_cpy - compy strings
+ *str_cpy - copy strings
  *@source: course
  *@dest: destinantion
  *Return: void
  */
-void str_cpy(char *source, char *dest)
+char *str_cpy(char *source, char *dest)
 {
 	int j;
 	int i = str_len(source);
@@ -80,4 +79,6 @@ void str_cpy(char *source, char *dest)
 		dest[j] = source[j];
 	}
 	dest[j] = '\0';
+
+	return (dest);
 }
