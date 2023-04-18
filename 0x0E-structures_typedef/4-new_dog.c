@@ -45,7 +45,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	str_cpy(owner, dog->owner);
 	dog->age = age;
 
-	return (dog);
+	if (dog)
+		return (dog);
+	return (NULL);
 }
 /**
  *str_len - count the words
