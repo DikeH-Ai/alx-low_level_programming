@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "dog.h"
-void str_cpy(char *, char *);
 int str_len(char *words);
+void str_cpy(char *source, char *dest);
 /**
  *new_dog - creates a new dog
  *@name: member1
@@ -72,12 +72,12 @@ int str_len(char *words)
  */
 void str_cpy(char *source, char *dest)
 {
-	int j = 0;
+	int j;
+	int i = str_len(source);
 
-	while (source[j] != '\0')
+	for (j = 0; j < i, j++)
 	{
 		dest[j] = source[j];
-		j++;
 	}
 	dest[j] = '\0';
 }
