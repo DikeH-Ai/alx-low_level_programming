@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "function_pointers.h"
 /**
  *int_index- finds the index of an int in an array
@@ -15,7 +14,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 		return (-1);
 	for (i = 0; i < size; i++)
 	{
-		x = cmp(*(array + i));
+		x = cmp(array[i]);
 
 		if (x != 0)
 			return (i);
