@@ -9,9 +9,10 @@
  */
 void print_opcodes(void *func_ptr, size_t size)
 {
+	size_t i;
 	unsigned char *ptr = (unsigned char *)func_ptr;
 
-	for (size_t i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		printf("%02x ", ptr[i]);
 	}
