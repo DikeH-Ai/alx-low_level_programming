@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include "variadic_functions.h"
 /**
- *print_strings
+ *print_strings - prints strings
  *@separator: parameter
  *@n: argument count
  *Return: void
