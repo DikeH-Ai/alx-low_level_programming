@@ -2,23 +2,6 @@
 #include <stdlib.h>
 #include "function_pointers.h"
 /**
- *print_opcodes - prints opcodes
- *@func_ptr: main function
- *@size: byte size
- *Return: returns void
- */
-void print_opcodes(void *func_ptr, size_t size)
-{
-	size_t i;
-	unsigned char *ptr = (unsigned char *)func_ptr;
-
-	for (i = 0; i < size; i++)
-	{
-		printf("%02x ", ptr[i]);
-	}
-	printf("\n");
-}
-/**
  *main -  Entry function
  *@argc: argument count
  *@argv: argument vector
@@ -26,20 +9,32 @@ void print_opcodes(void *func_ptr, size_t size)
  */
 int main(int argc, char *argv[])
 {
+	int num, i;
+	char *ptr;
+
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	int size = atoi(argv[1]);
+	num = atoi(argv[1]);
 
-	if (size < 0)
+	if (num < 0)
 	{
 		printf("Error\n");
 		return (2);
 	}
+	ptr = (char *)main;
 
-	print_opcodes(&main, (size_t)size);
+	for (i = 0; i < num; i++)
+	{
+		if (i == num - 1)
+		{
+			printf("%02hhx\n", ptr[i]);
+			break;
+		}
+		printf("%02hhx ", ptr[i]);
+	}
 	return (0);
 }
