@@ -3,9 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 /**
- * add_node - add node to the beginning of the list
+ * add_node- add node to the beginning of the list
  * @head: double pointer to the head of the list
  * @str: sting
+ * Return: returns pointer to node
  */
 list_t *add_node(list_t **head, const char *str)
 {
