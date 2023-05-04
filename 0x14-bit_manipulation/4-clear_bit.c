@@ -1,4 +1,4 @@
-nclude "main.h"
+#include "main.h"
 
 /**
  * clear_bit - Update the value of a given bit to 1
