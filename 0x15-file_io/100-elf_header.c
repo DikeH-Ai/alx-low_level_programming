@@ -298,7 +298,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	printf_magic(header->e_ident);
 	printf_clas(header->e_ident);
 	printf_data(header->e_ident);
-	print_version(header->e_ident);
+	printf_ver(header->e_ident);
 	printf_os(header->e_ident);
 	printf_datax(header->e_ident);
 	printf_type(header->e_type, header->e_ident);
