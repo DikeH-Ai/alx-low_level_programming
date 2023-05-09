@@ -1,14 +1,16 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-char *buffer_creafile1r(char *file);
-void closed_file(int fd);
+
+char *init_buffer(char *file);
+void close_func(int fd);
+
 /**
- * buffer_creafile1r - Allocates 1024 bytes.
+ * init_buffer - Allocates 1024
  * @file: The name of the file buffer
- * Return: A pointer file1 the newly-allocated buffer.
+ * Return: A pointer to buffer.
  */
-char *buffer_creafile1r(char *file)
+char *init_buffer(char *file)
 {
 	char *buffer;
 
@@ -17,16 +19,18 @@ char *buffer_creafile1r(char *file)
 	if (buffer == NULL)
 	{
 		dprintf(STDERR_FILENO,
-				"Error: Can't write file1 %s\n", file);
+				"Error: Can't write to %s\n", file);
 		exit(99);
 	}
+
 	return (buffer);
 }
+
 /**
- * closed_file - Closes file.
- * @fd: The file closed.
+ * close_func - Close descriptors.
+ * @fd: The file descriptor to closed.
  */
-void closed_file(int fd)
+void close_func(int fd)
 {
 	int c;
 
@@ -38,48 +42,56 @@ void closed_file(int fd)
 		exit(100);
 	}
 }
+
 /**
- * main - Copies content from a file to another.
+ * main - Copies the contents of a file to another
  * @argc: The number of arguments
- * @argv: An array of pointers file1 the arguments.
+ * @argv: An array of pointers
  * Return: 0 on success.
  */
 int main(int argc, char *argv[])
 {
-	int file0, file1, r, w;
+	int file1, file2, r, w;
 	char *buffer;
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_file0 file_file1\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	buffer = buffer_creafile1r(argv[2]);
-	file0 = open(argv[1], O_RDONLY);
-	r = read(file0, buffer, 1024);
-	file1 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	buffer = init_buffer(argv[2]);
+	file1 = open(argv[1], O_RDONLY);
+	r = read(file1, buffer, 1024);
+	file2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
 	do {
-		if (file0 == -1 || r == -1)
+		if (file1 == -1 || r == -1)
 		{
 			dprintf(STDERR_FILENO,
-					"Error: Can't read file0 file %s\n", argv[1]);
+					"Error: Can't read from file %s\n", argv[1]);
 			free(buffer);
 			exit(98);
 		}
-		w = write(file1, buffer, r);
-		if (file1 == -1 || w == -1)
+
+		w = write(file2, buffer, r);
+		if (file2 == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
-					"Error: Can't write file1 %s\n", argv[2]);
+					"Error: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
-		r = read(file0, buffer, 1024);
-		file1 = open(argv[2], O_WRONLY | O_APPEND);
+
+		r = read(file1, buffer, 1024);
+		file2 = open(argv[2], O_WRONLY | O_APPEND);
+
 	} while (r > 0);
+
 	free(buffer);
-	closed_file(file0);
-	closed_file(file1);
+	close_func(file1);
+	close_func(file2);
+
 	return (0);
 }
 
