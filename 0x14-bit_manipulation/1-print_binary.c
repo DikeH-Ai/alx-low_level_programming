@@ -9,7 +9,7 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int size = 1UL << (sizeof(unsigned long int) * 8 - 1);
-	int leading_zeros = 1;
+	int zeros_leading = 1;
 
 	if (n == 0)
 	{
@@ -20,9 +20,9 @@ void print_binary(unsigned long int n)
 	{
 		if ((n & size) != 0)
 		{
-			leading_zeros = 0;
+			zeros_leading = 0;
 			_putchar('1');
-		} else if (!leading_zeros)
+		} else if (!zeros_leading)
 		{
 			_putchar('0');
 		}
