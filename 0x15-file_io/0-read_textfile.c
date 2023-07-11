@@ -13,43 +13,40 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 
-	ssize_t total_print = 0;
-	int read_byte = 0;
+	ssize_t read_byte = 0;
 	int fd = 0;
 	int print_byte = 0;
 	char *buffer = malloc(sizeof(char) * letters);
 
-	if (buffer == NULL)
+	if (buffer == NULL) 
 	{
-		return (0);
+		close(fd);
+		return 0;
 	}
-
 	if (filename == NULL)
-	{
 		return (0);
-	}
 
 	fd = open(filename, O_RDONLY);
 
 	if (fd == -1)
-	{
 		return (0);
-	}
+
 	read_byte = read(fd, buffer, letters);
 
 	if (read_byte == -1)
 	{
+		close(fd);
 		return (0);
 	}
-	total_print += read_byte;
 
 	print_byte = write(STDOUT_FILENO, buffer, read_byte);
+
+	close(fd);
 	if ((print_byte == -1) || (print_byte != read_byte))
 	{
-		/* code */
 		return (0);
 	}
 
-	return (total_print);
+	return (read_byte);
 
 }
