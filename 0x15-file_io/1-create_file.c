@@ -40,14 +40,13 @@ int create_file(const char *filename, char *text_content)
 
 	while (text_content[cnt] != '\0')
 	{
-		written_byte = write(fd, &text_content[cnt], 1);
-
-		if (written_byte < 0)
-			return (-1);
-
 		cnt++;
 	}
-	write(fd, "", 1);
+
+	written_byte = write(fd, text_content, cnt);
+
+	if (written_byte == -1)
+		return (-1);
 
 	close(fd);
 	return (1);
