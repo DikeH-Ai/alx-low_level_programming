@@ -31,6 +31,10 @@ int create_file(const char *filename, char *text_content)
 			cnt++;
 		}
 	}
+	else
+	{
+		return (-1);
+	}
 
 	written_byte = write(fd, text_content, cnt);
 
