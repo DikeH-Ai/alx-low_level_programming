@@ -22,6 +22,10 @@ int append_text_to_file(const char *filename, char *text_content)
 		for (cnt = 0; text_content[cnt];)
 			cnt++;
 	}
+	else
+	{
+		cnt = 0;
+	}
 
 	fd = open(filename, O_APPEND | O_WRONLY);
 
