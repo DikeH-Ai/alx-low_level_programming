@@ -44,7 +44,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	total_print += read_byte;
 
 	print_byte = write(STDOUT_FILENO, buffer, read_byte);
-	if (print_byte == -1)
+	if ((print_byte == -1) || (print_byte != read_byte))
 	{
 		/* code */
 		return (0);
