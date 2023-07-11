@@ -3,6 +3,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+
+/**
+ * close_fd- function to close file descriptors after use
+ * @fd1: file descriptor 1
+ * @fd2: file descriptor 2
+ */
 void close_fd(int fd1, int fd2)
 {
 	int close_fd1, close_fd2;
@@ -21,6 +27,14 @@ void close_fd(int fd1, int fd2)
 		exit(100);
 	}
 }
+
+
+/**
+ * copy_file- copy file content to another
+ * @file_from: file content to be copied from
+ * @file_to: file content to be copied to
+ *
+ */
 void copy_file(const char *file_from, const char *file_to)
 {
 	int fd1, fd2;
@@ -34,7 +48,7 @@ void copy_file(const char *file_from, const char *file_to)
 		exit(98);
 	}
 
-	fd2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 0644);
+	fd2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
@@ -60,6 +74,18 @@ void copy_file(const char *file_from, const char *file_to)
 	close_fd(fd1, fd2);
 }
 
+/**
+ * main - entry point
+ * @ac: argument count parameter
+ * @av: argument vector parameter
+ *
+ * Return: 0
+ *
+ * Descriptio: If number of argument is incorrect, program exits.
+ * If source file does not exist or can not be read, program exits.
+ * If destination file can not be created or written, program exits.
+ *
+ */
 int main(int ac, char **av)
 {
 	if (ac != 3)
